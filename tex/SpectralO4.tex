@@ -34,13 +34,13 @@
     effective relational valence along the Cosmochrony relaxation cascade, was identified in
     a companion paper as the sole remaining structural postulate of the admissibility
     sub-programme.
-    We show that the bounded-flux constraint $|\partial_t \chi_v| \leq c_\chi$, inherited from
+    We show that the bounded-flux constraint $|\partial_t \chi_v| \leq c_{\mathrm{BI}}$, inherited from
     Born--Infeld saturation, renders superlinear valence growth structurally impossible.
     Under a natural closure hypothesis relating valence to the cumulative exploration of the
     relational configuration space $\Omega_\chi$, the Cheeger isoperimetric inequality for
     Ramanujan--LPS graphs implies
     \begin{equation*}
-      \Delta p(n) \lesssim c_\chi \sqrt{p(n)},
+      \Delta p(n) \lesssim c_{\mathrm{BI}} \sqrt{p(n)},
     \end{equation*}
     from which it follows that any admissible power-law exponent must satisfy $\beta \leq 1$.
     This structural upper bound is derived without invoking phenomenological mass data and is
@@ -91,7 +91,7 @@
     constraint
     \begin{equation}
       \label{eq:intro-bi}
-      |\partial_t \chi_v| \leq c_\chi,
+      |\partial_t \chi_v| \leq c_{\mathrm{BI}},
     \end{equation}
     which is a foundational feature of the Cosmochrony substrate~\cite{Beau2026c}, imposes
     a non-trivial restriction on the admissible growth of $p(n)$.
@@ -99,14 +99,14 @@
     The argument proceeds in two steps.
     First, the Cheeger isoperimetric inequality for Ramanujan--LPS graphs translates the local
     flux bound~\eqref{eq:intro-bi} into a global constraint on front expansion:
-    $\Delta N(n) \lesssim c_\chi \sqrt{p(n)}$,
+    $\Delta N(n) \lesssim c_{\mathrm{BI}} \sqrt{p(n)}$,
     where $N(n)$ counts the distinct relational configurations explored up to rank $n$.
     Second, under a natural closure hypothesis relating the effective valence to the cumulative
     exploration of $\Omega_\chi$ (Hypothesis~\ref{hyp:proportionality}), integrating this
     bound yields (see Proposition~\ref{prop:beta-weak} below)
     \begin{equation}
       \label{eq:intro-result}
-      p(n) \lesssim \tfrac{1}{4}\, c_\chi^2\, n^2,
+      p(n) \lesssim \tfrac{1}{4}\, c_{\mathrm{BI}}^2\, n^2,
     \end{equation}
     and hence any admissible power-law exponent satisfies
     \begin{equation}
@@ -270,10 +270,10 @@
     In its discrete form, it reads
     \begin{equation}
       \label{eq:bi-background}
-      |\partial_t \chi_v| \leq c_\chi
+      |\partial_t \chi_v| \leq c_{\mathrm{BI}}
       \qquad \text{for every node } v \in \mathcal{G}(n),
     \end{equation}
-    where $\chi_v$ is the value of the relational field at node $v$ and $c_\chi$ is the
+    where $\chi_v$ is the value of the relational field at node $v$ and $c_{\mathrm{BI}}$ is the
     universal saturation scale.
 
     Equation~\eqref{eq:bi-background} is a local bound: it restricts the rate of change of
@@ -291,10 +291,10 @@
     relaxation can explore new regions of $\Omega_\chi$, as made precise in
     Lemma~\ref{lem:front}.
 
-    The scale $c_\chi$ appears in~\eqref{eq:bi-background} as a universal constant.
-    The structural bound~\eqref{eq:intro-beta} is proportional to $c_\chi^2$ through the
+    The scale $c_{\mathrm{BI}}$ appears in~\eqref{eq:bi-background} as a universal constant.
+    The structural bound~\eqref{eq:intro-beta} is proportional to $c_{\mathrm{BI}}^2$ through the
     intermediate result~\eqref{eq:intro-result}, but the qualitative conclusion $\beta \leq 1$
-    holds for any $c_\chi < \infty$.
+    holds for any $c_{\mathrm{BI}} < \infty$.
 
   \section{Bounded Relational Flux and Subdiffusive Valence Growth}
   \label{sec:subdiffusion}
@@ -308,7 +308,7 @@
     The bounded-flux constraint inherited from the Born--Infeld substrate reads
     \begin{equation}
       \label{eq:bi-constraint}
-      |\partial_t \chi_v| \leq c_\chi
+      |\partial_t \chi_v| \leq c_{\mathrm{BI}}
       \qquad
       \text{for every node } v \in \mathcal{G}(n).
     \end{equation}
@@ -354,7 +354,7 @@
       rank $n$ satisfies
       \begin{equation}
         \label{eq:front-lemma}
-        \Delta N(n) \lesssim c_\chi \sqrt{p(n)}.
+        \Delta N(n) \lesssim c_{\mathrm{BI}} \sqrt{p(n)}.
       \end{equation}
       The implicit constant depends only on the Cheeger control of the Ramanujan--LPS family
       and is independent of $n$.
@@ -377,7 +377,7 @@
       step is governed by the boundary-to-interior flux ratio.
 
       Under the local bound~\eqref{eq:bi-constraint}, the total outgoing flux from any node
-      in $S_n$ through its boundary edges is at most $(p(n)+1)\, c_\chi$.
+      in $S_n$ through its boundary edges is at most $(p(n)+1)\, c_{\mathrm{BI}}$.
       Summing over the advancing layer and using the Cheeger inequality
       $|\partial S_n| \geq h(\mathcal{G}(n))\, |S_n|$, the number of newly reachable nodes
       per cascade step satisfies
@@ -386,25 +386,25 @@
         \leq
         |\partial S_n|
         \leq
-        \frac{(p(n)+1)\, c_\chi}{h(\mathcal{G}(n))}.
+        \frac{(p(n)+1)\, c_{\mathrm{BI}}}{h(\mathcal{G}(n))}.
       \end{equation}
       Using \eqref{eq:cheeger-background}, $h(\mathcal{G}(n)) \gtrsim 1 - 1/\sqrt{p(n)}$,
       and $p(n)+1 \sim p(n)$ for large $p(n)$, this gives
       \begin{equation}
         \Delta N(n)
         \lesssim
-        \frac{p(n)\, c_\chi}{1 - 1/\sqrt{p(n)}}
+        \frac{p(n)\, c_{\mathrm{BI}}}{1 - 1/\sqrt{p(n)}}
         \sim
-        c_\chi \sqrt{p(n)}\cdot\frac{\sqrt{p(n)}}{1-1/\sqrt{p(n)}}
+        c_{\mathrm{BI}} \sqrt{p(n)}\cdot\frac{\sqrt{p(n)}}{1-1/\sqrt{p(n)}}
         \lesssim
-        c_\chi \sqrt{p(n)},
+        c_{\mathrm{BI}} \sqrt{p(n)},
       \end{equation}
       where the last inequality holds up to a constant factor for $p(n) \geq 4$.
     \end{proof}
 
     \begin{remark}
       \label{rem:cheeger-bound}
-      The estimate $\Delta N(n) \lesssim c_\chi \sqrt{p(n)}$ does not use the total size of
+      The estimate $\Delta N(n) \lesssim c_{\mathrm{BI}} \sqrt{p(n)}$ does not use the total size of
       $S_n$.
       It is an isoperimetric bound on the boundary layer: the Cheeger constant controls how
       efficiently the frontier can advance relative to the flux constraint, independently of
@@ -421,12 +421,12 @@
       differential inequality
       \begin{equation}
         \label{eq:dp-weak}
-        \frac{dp}{dn} \lesssim c_\chi \sqrt{p(n)}.
+        \frac{dp}{dn} \lesssim c_{\mathrm{BI}} \sqrt{p(n)}.
       \end{equation}
       Integrating from an initial rank $n_0$ with $p(n_0) = p_0$ gives
       \begin{equation}
         \label{eq:p-weak}
-        p(n) \lesssim \frac{c_\chi^2}{4}\, n^2
+        p(n) \lesssim \frac{c_{\mathrm{BI}}^2}{4}\, n^2
       \end{equation}
       up to an additive constant depending on $n_0$ and $p_0$.
       In particular, any admissible power-law growth $p(n) \sim n^\beta$ must satisfy
@@ -438,15 +438,15 @@
 
     \begin{proof}
       By Hypothesis~\ref{hyp:proportionality}, $\Delta p(n) \propto \Delta N(n)$.
-      Lemma~\ref{lem:front} therefore gives $\Delta p(n) \lesssim c_\chi \sqrt{p(n)}$, which
+      Lemma~\ref{lem:front} therefore gives $\Delta p(n) \lesssim c_{\mathrm{BI}} \sqrt{p(n)}$, which
       is~\eqref{eq:dp-weak} in discrete form.
       Passing to the continuous approximation and separating variables,
       \begin{equation}
-        \frac{dp}{\sqrt{p}} \lesssim c_\chi\, dn
+        \frac{dp}{\sqrt{p}} \lesssim c_{\mathrm{BI}}\, dn
         \qquad \Longrightarrow \qquad
-        2\sqrt{p(n)} \lesssim c_\chi\, n + \mathrm{const},
+        2\sqrt{p(n)} \lesssim c_{\mathrm{BI}}\, n + \mathrm{const},
       \end{equation}
-      from which $p(n) \lesssim c_\chi^2 n^2 / 4$.
+      from which $p(n) \lesssim c_{\mathrm{BI}}^2 n^2 / 4$.
       If $p(n) \sim n^\beta$, then $n^\beta \lesssim n^2$ for large $n$, which requires
       $\beta \leq 1$.
     \end{proof}
@@ -517,11 +517,11 @@
     \paragraph{Saturated Born--Infeld front dynamics.}
       Lemma~\ref{lem:front} uses only the linear regime of the flux
       bound~\eqref{eq:bi-constraint}.
-      In the fully saturated regime $|\partial_t \chi_v| \simeq c_\chi$, the nonlinear DBI
+      In the fully saturated regime $|\partial_t \chi_v| \simeq c_{\mathrm{BI}}$, the nonlinear DBI
       dynamics introduces corrections that further suppress the front expansion.
       A refined analysis of the saturated DBI front, extending the one-mode reduction
       of~\cite{Beau2026a1} to the variable-valence setting, could yield a sharper
-      bound of the form $\Delta N(n) \lesssim c_\chi^\alpha \sqrt{p(n)}$ with $\alpha < 1$,
+      bound of the form $\Delta N(n) \lesssim c_{\mathrm{BI}}^\alpha \sqrt{p(n)}$ with $\alpha < 1$,
       directly tightening the upper bound on $\beta$.
       This direction is the most likely to produce a quantitative improvement within the
       existing framework.
@@ -549,7 +549,7 @@
     \end{equation}
     where $\beta_{\mathrm{struct}}$ is determined solely by intrinsic parameters of the
     Cosmochrony substrate --- such as the effective dimension $D$ of $\Omega_\chi$, the
-    saturation scale $c_\chi$, and the spectral invariants of $\mathcal{G}(n)$ --- and is
+    saturation scale $c_{\mathrm{BI}}$, and the spectral invariants of $\mathcal{G}(n)$ --- and is
     numerically compatible with the phenomenological window $\beta^* \in (0.09, 0.13)$.
   \end{openproblem}
 
@@ -616,7 +616,7 @@
       explores new relational channels at an accelerating rate.
       Proposition~\ref{prop:beta-weak} shows that this is incompatible with the
       bounded-flux constraint: Born--Infeld saturation prevents the exploration front from
-      expanding faster than $\Delta N(n) \lesssim c_\chi \sqrt{p(n)}$, which forces
+      expanding faster than $\Delta N(n) \lesssim c_{\mathrm{BI}} \sqrt{p(n)}$, which forces
       $\beta \leq 1$.
 
       \item[(ii)] \emph{The admitted class is substantially smaller than unconstrained growth.}
@@ -726,11 +726,11 @@
     Prior to the present work, $\beta$ was constrained only phenomenologically, by matching
     the charged-lepton hierarchy to the mass formula~\eqref{eq:intro-mass-ratio}.
 
-    We have shown that the Born--Infeld saturation constraint $|\partial_t \chi_v| \leq c_\chi$
+    We have shown that the Born--Infeld saturation constraint $|\partial_t \chi_v| \leq c_{\mathrm{BI}}$
     imposes a genuine structural restriction on $\beta$.
     Under Hypothesis~\ref{hyp:proportionality}, the Cheeger isoperimetric inequality for
     Ramanujan--LPS graphs implies that the advancing exploration front satisfies
-    $\Delta N(n) \lesssim c_\chi \sqrt{p(n)}$ at each cascade rank.
+    $\Delta N(n) \lesssim c_{\mathrm{BI}} \sqrt{p(n)}$ at each cascade rank.
     Integrating this differential inequality yields~\eqref{eq:intro-result}, from which
     \begin{equation}
       \beta \leq 1.
@@ -813,10 +813,10 @@
 
     \paragraph{Saturated Born--Infeld front dynamics.}
       Lemma~\ref{lem:front} uses only the linearised regime of the flux constraint.
-      In the fully saturated regime $|\partial_t \chi_v| \simeq c_\chi$, the nonlinear DBI
+      In the fully saturated regime $|\partial_t \chi_v| \simeq c_{\mathrm{BI}}$, the nonlinear DBI
       dynamics suppresses front expansion more strongly.
       A one-mode DBI reduction in the variable-valence setting, extending~\cite{Beau2026a1},
-      could yield a bound $\Delta N(n) \lesssim c_\chi^\alpha \sqrt{p(n)}$ with $\alpha < 1$,
+      could yield a bound $\Delta N(n) \lesssim c_{\mathrm{BI}}^\alpha \sqrt{p(n)}$ with $\alpha < 1$,
       directly tightening the upper bound on $\beta$.
       This is the direction most likely to produce a quantitative improvement within the
       existing framework.
