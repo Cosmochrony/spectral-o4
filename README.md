@@ -1,5 +1,5 @@
 This repository contains the source of the **O4** Cosmochrony paper  
-[*Projective Dynamics and Mass Closure: Unified Stabilisation Mechanism for All Generations*](out/SpectralO4.pdf).
+*Projective Dynamics and Mass Closure: Unified Stabilisation Mechanism for All Generations*.
 
 This work extends the **spectral relaxation programme** by resolving the final
 open problem left by O3: the incomplete treatment of the central ADE level
