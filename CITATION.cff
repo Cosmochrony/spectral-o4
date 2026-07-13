@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you cite this work, please use the metadata from this file."
+title: "Subdiffusive Valence Growth under Bounded Relational Flux: Structural Derivation of the Cascade Exponent"
+type: software
+authors:
+  - family-names: "Beau"
+    given-names: "Jérôme"
+repository-code: "https://github.com/Cosmochrony/spectral-o4"
+url: "https://cosmochrony.org/science/spectral/program/o4/"
+doi: "10.5281/zenodo.19101472"
+license: "CC-BY-4.0"
+preferred-citation:
+  type: article
+  title: "Subdiffusive Valence Growth under Bounded Relational Flux: Structural Derivation of the Cascade Exponent"
+  authors:
+    - family-names: "Beau"
+      given-names: "Jérôme"
+  year: 2026
+  doi: "10.5281/zenodo.19101472"
+  url: "https://doi.org/10.5281/zenodo.19101472"
