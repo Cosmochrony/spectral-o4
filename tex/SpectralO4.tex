@@ -24,7 +24,7 @@
 \title{Subdiffusive Valence Growth under Bounded Relational Flux: Structural Derivation of the Cascade Exponent $\beta$}
 \author{J\'er\^ome Beau\\
 \small Independent Researcher; jerome.beau@cosmochrony.org}
-\date{March 2026}
+\date{March 2026\\[2pt]\small Version 1.1.1}
 
 \begin{document}
 
@@ -330,7 +330,8 @@
 
     \begin{hypothesis}[Valence--exploration proportionality]
       \label{hyp:proportionality}
-      The effective relational valence $p(n)$ is proportional to the cumulative number
+      For the changing-valence LPS relaxation family considered in this paper,
+      the effective relational valence $p(n)$ is proportional to the cumulative number
       $N(n)$ of distinct relational configurations reached by the relaxation process up to
       cascade rank $n$:
       \begin{equation}
@@ -353,6 +354,10 @@
       assumption on the growth rate of $p(n)$ is made at this stage.
       All dynamical content of the bound~\eqref{eq:intro-beta} is carried by
       Lemma~\ref{lem:front} and the bounded-flux constraint.
+      The hypothesis is expander-scoped.  It does not transfer to the fixed-degree
+      Heisenberg BFS cascade, where the two native corpus realisations contradict the
+      required proportionality; see the Span-Growth Note
+      \href{https://doi.org/10.5281/zenodo.21480521}{doi:10.5281/zenodo.21480521}.
     \end{remark}
 
   \subsection{Cheeger control of the advancing front}
@@ -838,14 +843,15 @@
 
     The second gap is foundational.
     Hypothesis~\ref{hyp:proportionality} is a closure assumption rather than a derived result.
-    Its derivation from the microscopic dynamics of $\chi$ and the fiber structure of $\Pi$
-    remains an open problem that is not addressed within the present framework and is therefore
-    logically prior to the quantitative determination of $\beta$.
+    Its derivation from the microscopic dynamics of $\chi$ remains open within the LPS model.
+    On the fixed-degree Heisenberg cascade, however, this is no longer an open closure: the
+    native proportionality required by Hypothesis~\ref{hyp:proportionality} is refuted for the
+    two realisations present in the frozen corpus.
 
     Neither gap diminishes the force of the present result: the quadratic upper bound on
     $p(n)$ (equivalently $\beta \leq 1$ in the rescaled convention) holds under
     Hypothesis~\ref{hyp:proportionality} and the Born--Infeld constraint, and these are the
-    weakest assumptions under which a meaningful bound can currently be obtained.
+    weakest assumptions used here within the changing-valence expander model.
 
   \subsection{Directions for further work}
     \label{ssec:directions}

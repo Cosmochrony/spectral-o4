@@ -1,216 +1,105 @@
-This repository contains the source of the **O4** Cosmochrony paper  
-*Projective Dynamics and Mass Closure: Unified Stabilisation Mechanism for All Generations*.
+# O4 — Subdiffusive Valence Growth under Bounded Relational Flux
 
-This work extends the **spectral relaxation programme** by resolving the final
-open problem left by O3: the incomplete treatment of the central ADE level
-$\lambda_2 = 1$ and the absence of a closed mass formula for all generations.
+This repository contains the source of the O4 Cosmochrony paper:
 
-While **O3** provides a structural mechanism for amplifying mass ratios through
-dynamic valence growth, it leaves one essential component unresolved: the
-stabilisation of the central mode, which never exits the Kesten--McKay support.
+*Subdiffusive Valence Growth under Bounded Relational Flux: Structural
+Derivation of the Cascade Exponent \(\beta\)*.
 
-The present work introduces a unified treatment combining:
+## Scope
 
-- **support-exit dynamics** for $\lambda_1$ and $\lambda_3$
-- **Kesten--McKay saturation dynamics** for $\lambda_2$
+O4 studies a changing-valence family of Lubotzky–Phillips–Sarnak (LPS)
+Ramanujan graphs. It asks what bounded relational flux implies for the growth
+of the effective valence \(p(n)\) along that expander cascade.
 
-This yields a complete structural description of the three-generation mass spectrum.
+The manuscript does not determine the phenomenological value of \(\beta\).
+Its proved result is an upper bound under an explicit closure hypothesis.
 
-# Core Result
+## Structural inputs
 
-The paper establishes a **unified stabilisation law** in which:
+The argument uses:
 
-- modes with $\lambda \neq 1$ stabilise through **support exit**
-- the central mode $\lambda_2 = 1$ stabilises through **spectral saturation**
+- the named bounded-capacity axiom [A-cap],
+  \[
+  |\partial_t\chi_v|\le c_\chi;
+  \]
+- the Cheeger isoperimetric bound for the LPS relaxation family;
+- the expander-scoped closure hypothesis
+  \[
+  p(n)\propto N(n),
+  \]
+  where \(N(n)\) counts cumulatively explored relational configurations.
 
-The effective mass of each generation is determined by:
+The proportionality is a hypothesis, not a microscopic dynamical law.
 
-- an exit rank $n_{\mathrm{exit}}(\lambda)$ for off-central modes
-- a saturation scale $n_{\mathrm{sat}}$ for the central mode
+## Main result
 
-This produces a closed mapping:
+The flux and Cheeger estimates give
 
-$\lambda_i \longrightarrow M_i$
+\[
+\Delta N(n)\lesssim c_\chi\sqrt{p(n)}.
+\]
 
-for all three ADE levels.
+Under the valence–exploration closure, this becomes
 
-# Completion of the Mass Spectrum
+\[
+\Delta p(n)\lesssim c_\chi\sqrt{p(n)},
+\]
 
-O4 resolves the structural asymmetry identified in O3:
+and integration yields
 
-- $\lambda_3$ exits first → highest mass
-- $\lambda_1$ exits second → intermediate mass
-- $\lambda_2 = 1$ never exits → requires a distinct mechanism
+\[
+p(n)\lesssim \frac14 c_\chi^2 n^2.
+\]
 
-The Kesten--McKay saturation mechanism provides:
+Thus super-quadratic valence growth is excluded. In the rescaled convention
+used by the O-series, the corresponding structural statement is
+\(\beta\le 1\).
 
-- a finite effective stabilisation scale for $\lambda_2$
-- a universal normalisation factor inherited from Step 4
+## Epistemic status
 
-This completes the triplet $(M_1, M_2, M_3)$.
+Established in the manuscript:
 
-# Unified Mass Formula
+- the LPS Cheeger/front estimate;
+- the conditional quadratic upper bound;
+- exclusion of super-quadratic growth under [A-cap] and the named closure.
 
-The resulting mass structure factorises into two components:
+Not established:
 
-1. **Geometric amplification (O3)**  
-   Controlled by spectral distance and $\beta$
+- the numerical window \(\beta^*\in(0.09,0.13)\);
+- a microscopic derivation of the LPS closure hypothesis;
+- a native Heisenberg capacity-to-rate law.
 
-2. **Saturation normalisation (KM mechanism)**  
-   Fixing the central scale and anchoring the hierarchy
+## Transfer boundary
 
-The combined expression yields:
+The closure \(p(n)\propto N(n)\) is meaningful for the changing-valence LPS
+model analysed here. It does not transfer to the fixed-degree Heisenberg BFS
+cascade. The native audit in the
+[Span-Growth Note](https://doi.org/10.5281/zenodo.21480521) refutes the
+required proportionality for the two native realisations present in the
+frozen corpus.
 
-- correct ordering
-- correct scaling behaviour
-- consistent normalisation across generations
+Accordingly, O4 remains a valid expander-scoped conditional theorem. It is not
+a derivation of
+\[
+\beta^*=\frac{1}{\delta_{\mathrm{pair}}+\tfrac12}
+\]
+from the Heisenberg pair-capacity exponent.
 
-# Resolution of the Closure Problem
+## Repository contents
 
-O4 resolves the final limitation of the O-series:
+- `tex/SpectralO4.tex` — manuscript source
+- `tex/cosmochrony-bibliography.bib` — programme bibliography
+- `code/` — numerical and figure-generation material, when present
+- `out/SpectralO4.pdf` — compiled manuscript
 
-- **Spectral Relaxation**  
-  → structure identified, hierarchy invalid
+## Citation
 
-- **O1**  
-  → ordering restored
+J. Beau, *Subdiffusive Valence Growth under Bounded Relational Flux:
+Structural Derivation of the Cascade Exponent*, Zenodo, 2026.
+DOI: [10.5281/zenodo.19101472](https://doi.org/10.5281/zenodo.19101472).
 
-- **O3**  
-  → hierarchy amplitude generated
-
-- **O4**  
-  → full mass spectrum closed
-
-The hierarchy is now:
-
-- structurally generated
-- dynamically consistent
-- fully defined across all generations
-
-# Role of the Central Mode
-
-A key conceptual result is the special status of $\lambda_2 = 1$:
-
-- it lies at the midpoint of the spectral support
-- it is invariant under support contraction
-- it never undergoes exit
-
-Its stabilisation therefore reflects:
-
-- not geometric exclusion (exit)
-- but **maximal symmetry under projection**
-
-This explains the universality of the associated normalisation factor.
-
-# Compatibility with Previous Steps
-
-O4 preserves all prior structural results:
-
-- ADE spectrum from **Spectral Stratigraphy**
-- ordering from **O1**
-- amplification from **O3**
-
-It introduces no new spectral data and modifies only the stabilisation mechanism
-of the central mode.
-
-# Conceptual Structure
-
-O4 completes the structural chain:
-
-1. Spectral admissibility → mode selection
-2. Spectral stratigraphy → discrete levels
-3. Spectral relaxation → projective dynamics
-4. O1 → ordering via support contraction
-5. O3 → amplification via dynamic valence
-6. O4 → closure via unified stabilisation
-
-This yields a complete pipeline from spectrum to physical masses.
-
-# Physical Interpretation
-
-Mass emerges as a stabilisation phenomenon governed by two complementary mechanisms:
-
-- **instability-driven exit** (for off-central modes)
-- **symmetry-protected saturation** (for the central mode)
-
-The hierarchy reflects the interplay between:
-
-- distance from spectral symmetry
-- rate of support contraction
-- intrinsic saturation constraints
-
-# What O4 Resolves
-
-O4 provides:
-
-- a complete mapping from ADE spectrum to masses
-- a unified treatment of all three generations
-- a structural origin for the central generation scale
-
-It removes the last ambiguity in the mass-generation mechanism.
-
-# Residual Open Problem
-
-The only remaining structural unknown is:
-
-- **Derivation of the exponent $\beta$**
-
-Once $\beta$ is derived, the framework becomes fully predictive.
-
-# Open Directions
-
-1. **First-principles derivation of $\beta$**  
-   From relational dynamics of the substrate
-
-2. **Extension to quark sector**  
-   Incorporating colour and additional representation structure
-
-3. **Absolute mass scale calibration**  
-   Linking the structural scale to physical units
-
-# Status
-
-This framework is:
-
-- spectrally complete
-- dynamically unified
-- structurally minimal
-- fully hierarchical
-
-It does not assume:
-
-- fundamental mass parameters
-- external hierarchy inputs
-- additional particle dynamics
-
-# Repository Structure
-```
-paper/
-├── out/ # Compiled O4 PDF
-├── tex/ # LaTeX sources
-└── README.md
-```
-
-# Citation
-
-If you reference this work, please cite:
-
-> J. Beau, *Projective Dynamics and Mass Closure: Unified Stabilisation Mechanism for All Generations*, Zenodo, 2026.
-
-# Acknowledgements
-
-Portions of the derivations, conceptual synthesis, and editorial refinement
-benefited from iterative interactions with large language models used as
-analytical assistants.  
-All theoretical results and interpretations remain the sole responsibility
-of the author.
-
-# Contributions
-
-This repository is intended as a research reference.
-
-Critical feedback, independent verification, and alternative formulations of
-the unified stabilisation mechanism are welcome.
-
-Please open an issue to discuss conceptual points,
-technical details, or possible extensions.
+## Acknowledgements
+
+Portions of the analytical and editorial development benefited from iterative
+interactions with large language models used as research assistants. All
+scientific claims and interpretations remain the author's responsibility.
