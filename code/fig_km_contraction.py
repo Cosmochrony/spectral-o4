@@ -109,6 +109,9 @@ ax.set_title(
 )
 
 plt.tight_layout()
-plt.savefig('fig1_km_contraction.pdf', bbox_inches='tight', dpi=200)
-plt.savefig('fig1_km_contraction.png', bbox_inches='tight', dpi=200)
+# Suppress the embedded creation timestamp so repeated runs are byte-identical
+# (required for the ARTIFACT_SHA256SUMS check in build.sh).
+# Only the PDF is produced: it is the sole format \includegraphics uses in the manuscript.
+pdf_metadata = {'CreationDate': None, 'ModDate': None}
+plt.savefig('fig1_km_contraction.pdf', bbox_inches='tight', dpi=200, metadata=pdf_metadata)
 print("Figure 1 saved.")
