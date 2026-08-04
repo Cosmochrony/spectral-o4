@@ -20,7 +20,9 @@
   pdftitle={Bounded Relational Flux and Ramanujan Expansion Do Not Yet Yield a Cascade-Exponent Bound},
   pdfauthor={Jérôme Beau},
   pdfsubject={Cosmochrony admissibility sub-programme, O4},
-  pdfkeywords={relational substrate; Born-Infeld saturation; Ramanujan graphs; Kesten-McKay measure; valence growth; cascade exponent; spectral admissibility; Cheeger inequality},
+  pdfkeywords={relational substrate; Born-Infeld saturation; Ramanujan graphs;
+    Kesten-McKay measure; valence growth; cascade exponent; spectral admissibility;
+    Cheeger inequality},
   hidelinks
 }
 
@@ -58,12 +60,17 @@
     itself: a persistent cross-rank exploration model on the LPS/Ramanujan substrate, an
     edgewise flux-allocation law, a dimensionless activation threshold, and a mechanism
     converting available boundary flux into realised, non-congested vertex activations.
-    Interpretively, a conditional analysis identifies a further qualitative tension: if a
-    fixed positive fraction of the available activation budget is realised and target
-    congestion remains uniformly bounded, strong expansion favours fast, near-geometric
-    exploration of the underlying group, the qualitative opposite of the slow polynomial
-    growth a structural exponent bound requires.
-    Neither condition is derived here.
+    Neither candidate host (a weighted multigraph or a simple graph on successive LPS
+    generating sets) currently supports a valid cross-rank spectral estimate: at fixed
+    modulus the shells are simple only in a finite window, and at varying modulus successive
+    shells act on different groups.
+    Interpretively, a conditional analysis identifies a further qualitative tension, stacked
+    on this unconstructed host: if such a host existed with a single LPS graph's
+    isoperimetric profile, and if a fixed positive fraction of the available activation
+    budget were realised with target congestion uniformly bounded, strong expansion would
+    favour fast, near-geometric exploration of the underlying group, the qualitative opposite
+    of the slow polynomial growth a structural exponent bound requires.
+    None of these conditions is derived here.
     No claim is made that a structural upper bound on $\beta$ is impossible; only that the
     argument advanced for it does not hold, and that its most natural repair faces an
     identified conditional structural tension rather than a routine technical gap.
@@ -251,12 +258,15 @@
       \label{eq:ramanujan-laplacian}
       \left(\sqrt{p} - 1\right)^2 \leq \lambda \cdot (p+1) \leq \left(\sqrt{p} + 1\right)^2,
     \end{equation}
-    The lower inequality is the content of the Alon--Boppana theorem~\cite{AlonBoppana}, an
-    asymptotic near-optimality statement holding for regular graphs in general, not specific
-    to the LPS family.
-    The upper inequality is the Ramanujan property itself: it is a separate fact, established
-    for the LPS family via Deligne's theorem on the Ramanujan--Petersson conjecture,
-    following~\cite{LPS}, not a consequence of Alon--Boppana.
+    an algebraic restatement of~\eqref{eq:ramanujan} under $\lambda=1-\mu/(p+1)$: both sides
+    of this two-sided bound are the Ramanujan property itself, established for the LPS
+    family via Deligne's theorem on the Ramanujan--Petersson conjecture, following~\cite{LPS},
+    not the content of the Alon--Boppana theorem.
+    Alon--Boppana~\cite{AlonBoppana} is a separate, related fact: for \emph{any} infinite
+    family of $(p+1)$-regular graphs of growing size, the spectral gap cannot do
+    asymptotically better than $2\sqrt p$, so the Ramanujan property here is asymptotically
+    optimal, not merely one admissible bound among many; it is not itself a source of either
+    side of~\eqref{eq:ramanujan-laplacian}.
 
     The spectral gap of $\mathcal{G}(n)$ satisfies
     $\lambda_2 \geq (\sqrt{p(n)} - 1)^2 / (p(n) + 1)$.
@@ -302,14 +312,53 @@
     generators (equivalently, for the reduction $\Omega_p \to \mathrm{PSL}(2,\mathbb F_q)$ of
     the $p+1$ integer quaternions of norm $p$ to be injective, so that the Cayley graph is
     simple with no repeated or coincident generators).
+    The full argument needs the reduction map made precise, not only the final magnitude
+    estimate.
+
+    By Jacobi's four-square theorem, under the standard LPS normalisation ($a>0$ odd; $b,c,d$
+    even), the equation $a^2+b^2+c^2+d^2=p$ has exactly $p+1$ integer solutions; $\Omega_p$ is
+    this set.
+    In particular no $\alpha \in \Omega_p$ has $-\alpha \in \Omega_p$ as well, since $a>0$ for
+    every element.
+    Fix, once and for all, a square root $\bar\imath$ of $-1$ modulo $q$ (exists since
+    $q\equiv1\pmod4$) and a single square root $\sqrt p$ of $p$ modulo $q$ (exists by the
+    quadratic-residue condition above), used uniformly for every $\alpha\in\Omega_p$ -- not
+    chosen independently per element.
+    Each $\alpha=(a,b,c,d)$ maps to
+    \[
+    M(\alpha) \;=\; \begin{pmatrix} a+b\bar\imath & c+d\bar\imath \\ -c+d\bar\imath &
+    a-b\bar\imath \end{pmatrix} \pmod q,
+    \]
+    of determinant $a^2+b^2+c^2+d^2=p \equiv (\sqrt p)^2 \pmod q$; dividing by the fixed
+    $\sqrt p$ gives an element of $\mathrm{SL}(2,\mathbb F_q)$, and the further quotient by the
+    centre $\{\pm I\}$ gives the class of $\alpha$ in $\mathrm{PSL}(2,\mathbb F_q)$.
+
+    The map $\alpha \mapsto M(\alpha) \bmod q$ is injective component-wise: from the diagonal
+    entries, $a \equiv (M_{11}+M_{22})/2$ and $b \equiv (M_{11}-M_{22})/(2\bar\imath) \pmod q$
+    (both $2$ and $\bar\imath$ invertible modulo the odd prime $q$), and $c,d$ recover
+    symmetrically from the off-diagonal entries; so $M(\alpha)\equiv M(\alpha')\pmod q$ if and
+    only if $\alpha\equiv\alpha'\pmod q$ component-wise.
+    Two elements $\alpha,\alpha'\in\Omega_p$ give the \emph{same} class in
+    $\mathrm{PSL}(2,\mathbb F_q)$ if and only if $M(\alpha)/\sqrt p \equiv \pm
+    M(\alpha')/\sqrt p \pmod q$ -- the projective scalar in the $\mathrm{SL}\to\mathrm{PSL}$
+    quotient reduces to $\pm1$ -- equivalently (the fixed, common $\sqrt p$ being invertible
+    mod $q$, and by the component-wise injectivity just shown) $\alpha \equiv \pm\alpha'
+    \pmod q$ as integer quaternions.
+
     Two distinct $\alpha,\alpha' \in \Omega_p$ have components bounded by $\sqrt p$ in
     absolute value, so every component of $\alpha \mp \alpha'$ lies in the open interval
     $(-2\sqrt p,\, 2\sqrt p)$; if $q > 2\sqrt p$, no nonzero integer in that range is
-    $\equiv 0 \pmod q$, so $\alpha \equiv \pm\alpha' \pmod q$ forces $\alpha=\alpha'$.
-    Hence $q > 2\sqrt p$ is a sufficient injectivity condition, guaranteeing $p+1$ pairwise
-    distinct generators after reduction.
-    Since $\mathrm{def{:}vv\_sequence}$'s own requirement $p(n) \to \infty$ forces this
-    condition to be checked at every rank, a variable-valence sequence compatible with
+    $\equiv 0 \pmod q$, so each congruence $\alpha\equiv\alpha'\pmod q$ or
+    $\alpha\equiv-\alpha'\pmod q$ forces the corresponding \emph{integer} equality,
+    $\alpha=\alpha'$ or $\alpha=-\alpha'$.
+    The second case is impossible for $\alpha\neq0$: $\alpha=-\alpha'$ would need $a=-a'$ with
+    $a,a'>0$, excluded by the sign normalisation recalled above.
+    Hence $q > 2\sqrt p$ forces $\alpha=\alpha'$ whenever $\alpha,\alpha'\in\Omega_p$ have the
+    same $\mathrm{PSL}(2,\mathbb F_q)$ image: it is a sufficient injectivity condition,
+    guaranteeing $p+1$ pairwise distinct generators after reduction.
+
+    Since the variable-valence LPS sequence's own defining requirement $p(n) \to \infty$
+    forces this condition to be checked at every rank, a variable-valence sequence compatible with
     simplicity throughout requires $q(n) \gtrsim \sqrt{p(n)}$ -- a growth rate for $q(n)$ that
     is not stated in the companion paper introducing the sequence~\cite{Beau2026a6}, and is
     strictly stronger than the weaker cardinality bound $q(n) \gtrsim p(n)^{1/3}$ needed merely
@@ -501,14 +550,18 @@
     none of which is supplied by the Born--Infeld axiom or the LPS construction:
 
     \begin{enumerate}
-      \item a persistent cross-rank exploration model compatible with the finite-window LPS
-        host and the activation dynamics below; simple and multiplicity-weighted running
-        unions of successive generating sets can be written down, but neither currently
-        supplies every property the argument needs;
-      \item a resolution of whether that host should be a weighted multigraph (with edge
-        multiplicities requiring their own physical interpretation as parallel relational
-        channels) or a simple graph (requiring a proved bound on cross-generator overlap, not
-        currently available);
+      \item a persistent cross-rank exploration host on which a valid spectral estimate can
+        be run at all: at fixed $q$, generator shells are simple only within the finite
+        window $q>2\sqrt{p(n)}$ (Section~\ref{ssec:lps}), and a union of \emph{generating
+        sets} is not the same object as a cumulative set of \emph{explored vertices}; at
+        variable $q(n)$ -- the regime the variable-valence LPS sequence requires for
+        unbounded $p(n)\to\infty$ -- successive shells act on different groups
+        $\mathrm{PSL}(2,\mathbb F_{q(k)})$, so no common spectral estimate across ranks is
+        even meaningful (Section~\ref{ssec:tension} details both obstructions);
+      \item independently of item~1, a resolution of whether such a host, if constructed,
+        should be a weighted multigraph (with edge multiplicities requiring their own
+        physical interpretation as parallel relational channels) or a simple graph (requiring
+        a proved bound on cross-generator overlap, not currently available);
       \item an edgewise flux-allocation law converting the node-level bound
         $|\partial_t\chi_v|\leq c_\chi$ into a per-edge quantity, a choice not fixed by
         [A-cap]'s own statement;
@@ -532,72 +585,81 @@
     $\beta$ exists via some other argument.
     A further consideration bears on which direction any repair is likely to point, even
     though it does not settle the question.
-    It is stated here as an explicit conditional result -- a genuine implication, valid
-    whenever its named premises hold, but with those premises left undissolved rather than
-    derived -- not as a vague qualitative impression and not as ``not a theorem'' in the
-    weaker sense of merely being unproved.
 
-    \paragraph{The one unconditional ingredient: a weighted-union spectral estimate.}
-    Let $E_n$ be the explored-configuration host of item~1 of
-    Section~\ref{ssec:repair}, built as the multiplicity-weighted running union
-    $M_n := \biguplus_{k \leq n} S_{p(k),q}$ of successive LPS generating sets (item~2 of
-    Section~\ref{ssec:repair}).
-    Writing $D_n := \sum_{k\leq n}(p(k)+1)$ for the multiplicity-counted degree and using that
-    each individual shell satisfies the Ramanujan bound $\|T_\rho(S_{p(k),q})\| \leq
-    2\sqrt{p(k)}$ on every nontrivial representation $\rho$ (Section~\ref{ssec:lps}), the
-    triangle inequality gives, unconditionally and for every $n$,
+    \paragraph{Why a cross-rank spectral estimate is not available.}
+    Section~\ref{ssec:repair} names, as candidate constructions for the missing exploration
+    host, a weighted multigraph on the multiset union $M_n := \biguplus_{k\leq n} S_{p(k),q}$
+    of successive LPS generating sets, or a simple graph on their set union $T_n :=
+    \bigcup_{k\leq n} S_{p(k),q}$.
+    Neither currently supports a valid cross-rank spectral estimate.
+    At fixed $q$, the individual shells $S_{p(k),q}$ are simple and injective only while
+    $q > 2\sqrt{p(k)}$ (Section~\ref{ssec:lps}), so any sum over $k\leq n$ is restricted to a
+    finite window in $n$, not an asymptotic statement; moreover $M_n$ or $T_n$ (a set of
+    \emph{generators}, controlling the degree of a Cayley graph) is not the same object as a
+    cumulative set of \emph{explored vertices} on that graph, and the two must not be
+    identified.
+    At variable $q(n)$ -- the regime the variable-valence LPS sequence actually requires for
+    $p(n)\to\infty$ unboundedly -- the operators $A(S_{p(k),q(k)})$ for different $k$ act on
+    $L^2$ of
+    \emph{different} groups $\mathrm{PSL}(2,\mathbb F_{q(k)})$, so no operator sum or common
+    spectral estimate across $k$ is even meaningful.
+    Both routes are closed as stated; no weighted-union or simple-union spectral bound is
+    used below.
+
+    \paragraph{What a single LPS graph's isoperimetry gives, if a host existed.}
+    What remains valid is the single-graph fact of Section~\ref{ssec:lps}: for the one
+    Ramanujan--LPS graph $\mathcal G(n)$ of degree $d(n)=p(n)+1$ at a given rank (not a union
+    across ranks), the normalised edge conductance
+    \[
+    \varphi(\mathcal G(n)) \;:=\; \frac{h(\mathcal G(n))}{d(n)}
+    \;\gtrsim\; \frac{(\sqrt{p(n)}-1)^2}{2(p(n)+1)} \;\to\; 1/2
+    \]
+    is bounded away from $0$ as $p(n)\to\infty$, using~\eqref{eq:cheeger-background} directly
+    (no vertex-isoperimetric detour, and no union).
+    For any vertex subset $E \subseteq \mathcal G(n)$ with $|E|\leq|\mathcal G(n)|/2$, the edge
+    boundary satisfies $|\partial E| \geq h(\mathcal G(n))|E|$, and since each inner-boundary
+    vertex contributes at most $d(n)$ edges to $\partial E$,
     \begin{equation}
-      \label{eq:tension-spectral}
-      R_n \;:=\; \frac{2\sum_{k\leq n}\sqrt{p(k)}}{D_n} \;\geq\; \frac{\|A(M_n)|_\rho\|}{D_n}
-      \quad\text{for every nontrivial } \rho,
+      \label{eq:tension-inner}
+      |\partial^-_V E| \;\geq\; \frac{|\partial E|}{d(n)} \;\geq\; \varphi(\mathcal G(n))\,|E|,
     \end{equation}
-    and for $p(k)\sim k^\beta$, $R_n = O(n^{-\beta/2}) \to 0$.
-    This is the only ingredient in this subsection that is proved rather than assumed; it is
-    a statement about the weighted multigraph $M_n$, not the simple union $E_n$, and
-    transferring it to $E_n$ needs a separate bound on cross-shell generator overlap
-    (Section~\ref{ssec:repair}, item~2), not supplied here.
-    Granting that transfer, a vertex-isoperimetric inequality converts $R_n \to 0$ into a
-    \emph{lower} bound $h_n$ on boundary size that grows toward its near-maximal value
-    relative to the degree $d(n)=p(n)+1$; write this as $|\partial^+_V E_n| \geq h_n|E_n|$
-    (outer vertex boundary) and, by degree-regularity, $|\partial^-_V E_n| \geq
-    h_n|E_n|/d(n)$ (inner vertex boundary), valid only while $|E_n| \leq |G|/2$, the domain on
-    which vertex-isoperimetric inequalities apply at all.
+    with $\varphi(\mathcal G(n))$ bounded below by a positive constant -- this is the
+    corrected route from a normalised edge quantity to the inner vertex boundary, not the
+    vertex-isoperimetric constant used in an earlier draft of this argument, which does not
+    itself stay bounded away from $0$ relative to the degree.
 
-    \paragraph{The conditional bound.}
-    Suppose, in addition to the transfer above and items 3--5 of Section~\ref{ssec:repair}
-    (an edgewise flux-allocation law; the activation threshold $\epsilon_0 = \kappa c_\chi$
-    with $\kappa$ dimensionless and $0 < \kappa \leq 1$, so that $b(n) :=
-    \min(p(n)+1,\lfloor 1/\kappa\rfloor) \geq 1$; and an activation-utilisation and
-    target-congestion mechanism), that a fixed fraction $\eta \in (0,1]$ of each
-    inner-boundary vertex's activation budget $b(n)$ is realised, and that each exterior
-    target vertex absorbs at most $C_n$ realised activations.
-    Then, while $|E_n| \leq |G|/2$,
+    \paragraph{The conditional bound, on an explicitly unconstructed host.}
+    \eqref{eq:tension-inner} says something about a \emph{single} graph, not about a
+    cumulative exploration process; using it for the latter requires, in addition to items
+    1--2 of Section~\ref{ssec:repair} (a persistent host and its simple-vs-multigraph
+    resolution, neither supplied), items 3--5 (an edgewise flux-allocation law; the
+    activation threshold $\epsilon_0=\kappa c_\chi$ with $\kappa$ dimensionless and
+    $0<\kappa\leq1$, so $b(n):=\min(p(n)+1,\lfloor1/\kappa\rfloor)\geq1$; and an
+    activation-utilisation and target-congestion mechanism).
+    \emph{If} a persistent host $E_n$ existed with the isoperimetric profile of a single LPS
+    graph at each rank, \emph{and} a fixed fraction $\eta\in(0,1]$ of each inner-boundary
+    vertex's budget $b(n)$ were realised, \emph{and} each exterior target vertex absorbed at
+    most $C_n$ realised activations, then, while $|E_n|\leq|\mathcal G(n)|/2$,
     \begin{equation}
       \label{eq:tension-bound}
-      \Delta|E_n| \;\geq\; \frac{\eta\, b(n)}{C_n}\, \frac{h_n}{d(n)}\, |E_n|.
+      \Delta|E_n| \;\geq\; \frac{\eta\,b(n)}{C_n}\,\varphi(\mathcal G(n))\,|E_n|,
     \end{equation}
-    Unlike $R_n \to 0$ above, none of $\eta$, $C_n$, or the cross-shell overlap transfer is
-    derived; in particular, $b(n)\geq 1$ once $p(n)+1\geq 1/\kappa$ secures only that one
-    factor, not $\eta$, $C_n$, or $h_n/d(n)$, which depend on separate, independent
-    hypotheses.
-    \emph{If} $\eta$, $b(n)$, $h_n/d(n)$, and $1/C_n$ are all bounded below by positive
-    constants, \eqref{eq:tension-bound} is a geometric recursion for as long as $|E_n| \leq
-    |G|/2$ continues to hold -- reaching that volume threshold on a depth scale logarithmic
-    in $|G|$, not the polynomial growth $p(n) \sim n^\beta$ a structural exponent bound
-    presupposes, but saying nothing about what happens once the threshold is reached, where
-    the vertex-isoperimetric inequality itself no longer applies.
+    and if $\eta$, $b(n)$, and $1/C_n$ are further bounded below by positive constants, this
+    is a geometric recursion reaching the volume threshold on a depth scale logarithmic in
+    $|\mathcal G(n)|$ -- not the polynomial growth $p(n)\sim n^\beta$ a structural exponent
+    bound presupposes -- saying nothing about what happens beyond that threshold.
 
-    This is a \textbf{conditional result on undelivered premises}, not merely an unproved
-    claim: given the named hypotheses (the overlap transfer, $\eta$ bounded below, $C_n$
-    bounded above), the geometric-growth conclusion follows validly up to the stated volume
-    threshold; what is missing is a derivation, not merely a proof, of those hypotheses, and
-    the conclusion is understood to fail if any of them fails to hold (e.g.\ $\eta \to 0$ or
-    $C_n \to \infty$ fast enough).
-    It identifies the exact burden of proof for a future repair: a mechanism supplying
-    quantitative bounds on the overlap transfer, $\eta$, and $C_n$ -- not merely positing
-    their existence -- that keeps~\eqref{eq:tension-bound}'s right-hand side sub-polynomial
-    up to $|G|/2$, rather than a construction that simply assumes slow growth to recover the
-    phenomenological target.
+    This is a \textbf{conditional result stacked on an unconstructed premise}, not merely an
+    unproved claim about an existing object: even granting $\eta$ and $C_n$ bounded as
+    stated, \eqref{eq:tension-bound} presupposes the host $E_n$ itself, which
+    Section~\ref{ssec:repair} and the paragraph above show is not currently supplied by either
+    candidate construction.
+    The qualitative point survives this scoping: \emph{if} a well-defined exploration process
+    on this substrate inherits a single LPS graph's isoperimetric profile at all, geometric
+    rather than polynomial growth is the generic expectation, not an assumption smuggled in to
+    reach a desired conclusion -- but no construction in this note or its sources currently
+    supplies that host, so the qualitative point is exactly that: qualitative, not a
+    derivation with a stated remaining gap in $\eta$ and $C_n$ alone.
 
   \section{The Residual Problem and its Geometric Content}
   \label{sec:residual}
