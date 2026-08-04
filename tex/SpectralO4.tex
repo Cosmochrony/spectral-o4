@@ -263,10 +263,10 @@
     family via Deligne's theorem on the Ramanujan--Petersson conjecture, following~\cite{LPS},
     not the content of the Alon--Boppana theorem.
     Alon--Boppana~\cite{AlonBoppana} is a separate, related fact: for \emph{any} infinite
-    family of $(p+1)$-regular graphs of growing size, the spectral gap cannot do
-    asymptotically better than $2\sqrt p$, so the Ramanujan property here is asymptotically
-    optimal, not merely one admissible bound among many; it is not itself a source of either
-    side of~\eqref{eq:ramanujan-laplacian}.
+    family of $(p+1)$-regular graphs of growing size, the largest nontrivial adjacency
+    eigenvalue (in absolute value) cannot stay asymptotically smaller than $2\sqrt p$, so the
+    Ramanujan property here is asymptotically optimal, not merely one admissible bound among
+    many; it is not itself a source of either side of~\eqref{eq:ramanujan-laplacian}.
 
     The spectral gap of $\mathcal{G}(n)$ satisfies
     $\lambda_2 \geq (\sqrt{p(n)} - 1)^2 / (p(n) + 1)$.
@@ -645,9 +645,14 @@
       \Delta|E_n| \;\geq\; \frac{\eta\,b(n)}{C_n}\,\varphi(\mathcal G(n))\,|E_n|,
     \end{equation}
     and if $\eta$, $b(n)$, and $1/C_n$ are further bounded below by positive constants, this
-    is a geometric recursion reaching the volume threshold on a depth scale logarithmic in
-    $|\mathcal G(n)|$ -- not the polynomial growth $p(n)\sim n^\beta$ a structural exponent
-    bound presupposes -- saying nothing about what happens beyond that threshold.
+    is a geometric recursion for as long as $|E_n|\leq|\mathcal G(n)|/2$ continues to hold --
+    not the polynomial growth $p(n)\sim n^\beta$ a structural exponent bound presupposes.
+    This says only that growth is geometric \emph{while} the volume hypothesis holds, not that
+    the threshold $|\mathcal G(n)|/2$ is actually reached in any particular number of steps:
+    since $|\mathcal G(n)|$ may itself vary with $n$ (through $q(n)$), concluding a specific
+    depth scale (e.g.\ logarithmic in $|\mathcal G(n)|$) would need a further, separate
+    hypothesis controlling how $|\mathcal G(n)|$ grows relative to the geometric rate, which
+    is not stated here.
 
     This is a \textbf{conditional result stacked on an unconstructed premise}, not merely an
     unproved claim about an existing object: even granting $\eta$ and $C_n$ bounded as

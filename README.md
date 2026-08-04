@@ -90,17 +90,18 @@ bash build.sh
 
 is the documented reproduction command from a fresh clone. It creates a Python virtual
 environment, installs the pinned versions in `code/requirements.txt`
-(`numpy==2.5.1`, `matplotlib==3.11.1`), regenerates `code/fig1_km_contraction.{pdf,png}`
-from `code/fig_km_contraction.py`, verifies the regenerated files against
-`ARTIFACT_SHA256SUMS`, stops immediately if either checksum does not match, and only then
-calls `compile.sh`. The figure-generation script fixes the PDF's embedded creation timestamp
-so repeated runs are byte-identical.
+(`numpy==2.5.1`, `matplotlib==3.11.1`), regenerates `code/fig1_km_contraction.pdf`
+(the only figure format the manuscript uses) from `code/fig_km_contraction.py`, verifies the
+regenerated file against `ARTIFACT_SHA256SUMS`, stops immediately if the checksum does not
+match, and only then calls `compile.sh`. The figure-generation script fixes the PDF's
+embedded creation timestamp so repeated runs are byte-identical.
 
 ```
 bash compile.sh
 ```
 
-runs only the LaTeX side (`pdflatex -> bibtex -> pdflatex x2`), assuming the figure already
+runs only the LaTeX side (`pdflatex -> bibtex -> pdflatex x3`, the extra final pass needed
+to stabilise cross-references on a cold build), assuming the figure already
 exists; use this for iterating on the manuscript text without re-running the figure
 generation. Both scripts write `out/SpectralO4.pdf` (git-ignored; regenerate from source
 rather than expecting a committed copy). `compile.sh` requires a working TeX Live

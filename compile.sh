@@ -28,33 +28,42 @@ fi
 export TEXINPUTS=".:./tex:${TEXINPUTS}"
 
 # Step 1: First pdflatex run
-echo -e "${GREEN}Step 1/5: First pdflatex run${NC}"
+echo -e "${GREEN}Step 1/6: First pdflatex run${NC}"
 pdflatex -file-line-error -interaction=nonstopmode -synctex=1 \
     -output-directory="$OUTPUT_DIR" \
     -recorder \
     "$TEX_FILE"
 
 # Step 2: Run bibtex
-echo -e "${GREEN}Step 2/5: Running bibtex${NC}"
+echo -e "${GREEN}Step 2/6: Running bibtex${NC}"
 cd "$OUTPUT_DIR"
 BSTINPUTS="../tex:${BSTINPUTS}" BIBINPUTS="../tex:${BIBINPUTS}" bibtex "$MAIN_NAME"
 cd ..
 
 # Step 3: Second pdflatex run (for bibliography)
-echo -e "${GREEN}Step 3/5: Second pdflatex run${NC}"
+echo -e "${GREEN}Step 3/6: Second pdflatex run${NC}"
 pdflatex -file-line-error -interaction=nonstopmode -synctex=1 \
     -output-directory="$OUTPUT_DIR" \
     -recorder \
     "$TEX_FILE"
 
 # Step 4: Third pdflatex run (for cross-references)
-echo -e "${GREEN}Step 4/5: Third pdflatex run${NC}"
+echo -e "${GREEN}Step 4/6: Third pdflatex run${NC}"
 pdflatex -file-line-error -interaction=nonstopmode -synctex=1 \
     -output-directory="$OUTPUT_DIR" \
     -recorder \
     "$TEX_FILE"
 
-# Step 5: Final check
+# Step 5: Fourth pdflatex run (a cold build's label/reference set has not yet
+# stabilised after step 4 alone; this run removes the residual
+# "Label(s) may have changed" warning rather than leaving it unresolved).
+echo -e "${GREEN}Step 5/6: Fourth pdflatex run${NC}"
+pdflatex -file-line-error -interaction=nonstopmode -synctex=1 \
+    -output-directory="$OUTPUT_DIR" \
+    -recorder \
+    "$TEX_FILE"
+
+# Step 6: Final check
 if [ -f "$OUTPUT_DIR/$MAIN_NAME.pdf" ]; then
     echo -e "${GREEN}=== Compilation successful ===${NC}"
     echo -e "Output: $OUTPUT_DIR/$MAIN_NAME.pdf"
