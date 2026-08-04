@@ -1,18 +1,18 @@
 cff-version: 1.2.0
 message: "If you cite this work, please use the metadata from this file."
-title: "Subdiffusive Valence Growth under Bounded Relational Flux: Structural Derivation of the Cascade Exponent"
+title: "Bounded Relational Flux and Ramanujan Expansion Do Not Yet Yield a Cascade-Exponent Bound"
 type: software
 authors:
   - family-names: "Beau"
     given-names: "Jérôme"
 repository-code: "https://github.com/Cosmochrony/spectral-o4"
 url: "https://cosmochrony.org/science/spectral/program/o4/"
-version: "1.1.1"
+version: "2.0"
 doi: "10.5281/zenodo.19101472"
 license: "CC-BY-4.0"
 preferred-citation:
   type: article
-  title: "Subdiffusive Valence Growth under Bounded Relational Flux: Structural Derivation of the Cascade Exponent"
+  title: "Bounded Relational Flux and Ramanujan Expansion Do Not Yet Yield a Cascade-Exponent Bound"
   authors:
     - family-names: "Beau"
       given-names: "Jérôme"
