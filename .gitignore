@@ -2,6 +2,10 @@ out/
 .idea/
 .DS_Store
 
+# Generated figures: identity carried by ARTIFACT_SHA256SUMS, not by a committed blob.
+code/*.pdf
+code/*.png
+
 # Common build-artefact baseline
 **/.DS_Store
 .venv/
