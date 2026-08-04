@@ -1,5 +1,7 @@
 \documentclass[11pt,a4paper]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{hyperref}
 \usepackage{geometry}
@@ -9,7 +11,17 @@
 \usepackage{graphicx}
 \usepackage{doi}
 
+\input{glyphtounicode}
+\pdfgentounicode=1
+
 \geometry{margin=2.5cm}
+
+\hypersetup{
+  pdftitle={Bounded Relational Flux and Ramanujan Expansion Do Not Yet Yield a Cascade-Exponent Bound},
+  pdfauthor={Jérôme Beau},
+  pdfsubject={Cosmochrony admissibility sub-programme, O4},
+  pdfkeywords={relational substrate; Born-Infeld saturation; Ramanujan graphs; Kesten-McKay measure; valence growth; cascade exponent; spectral admissibility; Cheeger inequality}
+}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -72,9 +84,11 @@
 
     The inter-generational mass hierarchy of charged leptons spans nearly four orders of
     magnitude, with $m_e / m_\tau \approx 3 \times 10^{-4}$.
-    Within the Cosmochrony admissibility sub-programme, this hierarchy has been shown to
-    emerge as a consequence of the contraction of the Kesten--McKay spectral support
-    along a variable-valence relaxation cascade~\cite{Beau2026a6, Beau2026a7}.
+    Within the Cosmochrony admissibility sub-programme, the \emph{ordering} and
+    \emph{functional form} of this hierarchy have been analysed as arising from the
+    contraction of the Kesten--McKay spectral support along a variable-valence relaxation
+    cascade~\cite{Beau2026a6, Beau2026a7}; the hierarchy's actual numerical magnitude depends
+    on the exponent $\beta$ below, which is not derived by that mechanism.
     The mechanism requires that the effective relational valence $p(n)$ of the Ramanujan--LPS
     relaxation graph grows with the cascade rank $n$, and produces the mass amplification
     formula
@@ -119,8 +133,9 @@
 
     This finding is structurally non-trivial in its own right.
     Prior to this examination, the two-step argument above was treated in the admissibility
-    sub-programme as delivering a structural bound $\beta \leq 1$ (in the rescaled convention
-    of Remark~\ref{rem:beta-convention}), independent of phenomenological calibration.
+    sub-programme as delivering a structural bound $\beta \leq 2$ (in the raw exponent
+    convention of $p(n) \sim n^\beta$; see Remark~\ref{rem:beta-convention}), independent of
+    phenomenological calibration.
     That the argument does not establish this removes a claimed structural result from the
     programme's inventory, not merely a technical refinement of one; Section~\ref{ssec:tension}
     additionally identifies a conditional qualitative reason to expect the natural repair
@@ -237,31 +252,46 @@
 
     The spectral gap of $\mathcal{G}(n)$ satisfies
     $\lambda_2 \geq (\sqrt{p(n)} - 1)^2 / (p(n) + 1)$.
-    By the discrete Cheeger inequality~\cite{Cheeger, HLW}, the Cheeger constant
-    $h(\mathcal{G}(n))$ satisfies
+    Here $h(\mathcal{G}(n))$ denotes the \emph{unnormalised} edge-isoperimetric (Cheeger)
+    constant, defined so that for any subset $S$ of vertices with $|S| \leq |\mathcal{G}(n)|/2$,
+    the edge boundary satisfies $|\partial S| \geq h(\mathcal{G}(n)) \cdot |S|$.
+    For a $d$-regular graph, the discrete Cheeger inequality relates this unnormalised
+    constant to the normalised Laplacian spectral gap $\lambda_2$ via a factor of the
+    degree~\cite{Cheeger, HLW}:
     \begin{equation}
       \label{eq:cheeger-background}
       h(\mathcal{G}(n))
-      \geq
-      \frac{\lambda_2(\mathcal{G}(n))}{2}
-      \gtrsim
-      \frac{(\sqrt{p(n)} - 1)^2}{2(p(n) + 1)}
-      \sim
-      \frac{1}{2}
-      \left(1 - \frac{1}{\sqrt{p(n)}}\right)^2,
+      \;\geq\;
+      \frac{d(n)\,\lambda_2(\mathcal{G}(n))}{2}
+      \;\gtrsim\;
+      \frac{(p(n)+1)\,(\sqrt{p(n)} - 1)^2}{2(p(n) + 1)}
+      \;=\;
+      \frac{(\sqrt{p(n)}-1)^2}{2}
+      \;\sim\;
+      \frac{p(n)}{2},
     \end{equation}
-    which approaches $1/2$ as $p(n) \to \infty$.
-    The Cheeger constant controls isoperimetric expansion: for any subset $S$ of vertices
-    with $|S| \leq |\mathcal{G}(n)|/2$, the edge boundary satisfies
-    $|\partial S| \geq h(\mathcal{G}(n)) \cdot |S|$.
+    i.e.\ $h(\mathcal{G}(n))$ grows linearly in $p(n)$, not toward a constant, as
+    $p(n) \to \infty$.
+    (The front-size argument audited in Section~\ref{ssec:defects} uses instead the
+    unnormalised-looking but degree-free estimate $h(\mathcal{G}(n)) \gtrsim
+    1 - 1/\sqrt{p(n)}$, which omits this degree factor; Defect 3 audits that argument's own
+    algebra using its own stated quantity, without endorsing it as the correct value.)
 
     The LPS construction is used here because it provides an explicit, analytically tractable
     Ramanujan family whose spectral properties are uniform in $p$ and whose generating
     structure is compatible with the admissibility framework of~\cite{Beau2026a1}.
-    The structural bound of Section~\ref{sec:subdiffusion} holds for any family of Ramanujan
-    graphs of growing degree; the LPS family is used for concreteness.
-    More generally, the result extends to any sequence of degrees compatible with an
-    expanding Ramanujan graph family~\cite{HLW}.
+    Section~\ref{sec:subdiffusion} examines an argument for a growth bound on this specific
+    family; no such bound is established there, and consequently none is claimed to extend to
+    other Ramanujan or expanding-degree families either.
+
+    The LPS graphs used throughout require, beyond $p,q \equiv 1 \pmod 4$ prime and $p \neq q$,
+    that $p$ be a quadratic residue modulo $q$ (equivalently, in the Legendre-symbol notation,
+    $\left(\tfrac{p}{q}\right) = 1$), which selects the $\mathrm{PSL}(2,\mathbb{F}_q)$
+    realisation used here; the non-residue case gives the $(p+1)$-regular
+    $\mathrm{PGL}(2,\mathbb{F}_q)$ construction instead, not used in this note.
+    This condition is stated here for completeness; it does not by itself affect any of the
+    findings of Section~\ref{sec:subdiffusion}, which concern the front-size argument rather
+    than the choice between the two realisations.
 
   \subsection{The Born--Infeld flux constraint}
     \label{ssec:bi}
@@ -365,21 +395,19 @@
       them has an agreed construction.
     \end{remark}
 
-    \begin{remark}[Notation convention: $\beta \leq 1$ as shorthand]
+    \begin{remark}[Notation: $\beta$ denotes the raw exponent throughout]
       \label{rem:beta-convention}
-      Throughout this paper and the O-series, we adopt the following rescaling convention for
-      $\beta$, used wherever a quadratic-type bound $p(n) \lesssim Cn^2$ is discussed.
-      The saturated case $p(n) \sim C n^2$ is identified with the \emph{maximal admissible
-      growth rate under such a bound}, and is assigned the rescaled exponent $\tilde\beta = 1$
-      after the substitution $\tilde\beta := \beta/2$.
-      Under this rescaling, a quadratic bound would read $\tilde\beta \leq 1$, and the
-      phenomenological window of O3 maps to $\tilde\beta^* \in (0.09, 0.13)$ unchanged.
-      In all subsequent sections and in the companion papers O3 and O5, the symbol $\beta$
-      denotes $\tilde\beta$ (i.e.\ the rescaled exponent), for consistency with the rest of
-      the O-series.
-      This convention is purely notational and does not by itself assert that any bound of
-      this form holds; Section~\ref{ssec:defects} shows that the specific argument examined
-      here does not establish one.
+      Throughout this note, $\beta$ denotes the same exponent used in
+      O3~\cite{Beau2026a7} and defined in~\eqref{eq:power-law}: the raw exponent of
+      $p(n) \sim n^\beta$, matching~\eqref{eq:intro-mass-ratio}'s exponent $2/\beta$.
+      No rescaled exponent is introduced.
+      In this convention, the candidate quadratic bound $p(n) \lesssim C n^2$ examined in
+      Section~\ref{ssec:defects} would correspond to $\beta \leq 2$, not $\beta \leq 1$: a
+      rescaling $\tilde\beta := \beta/2$ would map the candidate bound to $\tilde\beta \leq 1$,
+      but would equally rescale O3's window to $\tilde\beta^* \in (0.045, 0.065)$, not leave it
+      at $(0.09, 0.13)$.
+      Stating both the candidate bound and O3's window in the same, unrescaled $\beta$ avoids
+      this inconsistency.
     \end{remark}
 
   \subsection{Three independent defects of the front-size argument}
@@ -412,14 +440,28 @@
         The local flux bound~\eqref{eq:bi-constraint} constrains total outgoing flux from a
         node, not the number of vertices that flux can activate, without an explicit
         minimum-flux-per-activation threshold -- which the argument does not introduce.
+        A further, independent gap sits inside the argument's own intermediate step: the
+        node-level bound $|\partial_t \chi_v| \leq c_\chi$ is a rate at the node, not a
+        per-edge or per-channel quantity, so ``the total outgoing flux from any node through
+        its boundary edges is at most $(p(n)+1)\,c_\chi$'' -- used to obtain Defect 3's
+        estimate below -- already presupposes an edgewise allocation of the node bound (each
+        of the $p(n)+1$ channels carrying up to $c_\chi$) that is not itself part of
+        $[\text{A-cap}]$'s statement (cf.\ item~3 of Section~\ref{ssec:repair}).
 
       \item[\textbf{Defect 3 (asymptotic error).}]
-        Even granting the unsupported upper bound of Defect 2, combining it with the total
-        outgoing flux bound $(p(n)+1)\,c_\chi$ and the Cheeger estimate
-        $h(\mathcal{G}(n)) \gtrsim 1-1/\sqrt{p(n)}$ yields an estimate of order
+        Even granting the unsupported upper bound of Defect 2, combining the (unjustified)
+        total outgoing flux estimate $(p(n)+1)\,c_\chi$ with the argument's own quoted
+        Cheeger estimate $h(\mathcal{G}(n)) \gtrsim 1-1/\sqrt{p(n)}$ -- the degree-free
+        estimate flagged in Section~\ref{ssec:lps} as omitting the degree factor of the
+        correct discrete Cheeger inequality~\eqref{eq:cheeger-background}, quoted here only
+        because it is what the argument itself uses -- yields an estimate of order
         $c_\chi\, p(n)$, not $c_\chi\sqrt{p(n)}$: the ratio between the two,
         $\sqrt{p(n)}/(1-1/\sqrt{p(n)})$, diverges like $\sqrt{p(n)}$ as $p(n)\to\infty$, so
         treating it as an $O(1)$ constant silently drops a diverging factor.
+        (Substituting the corrected, degree-inclusive Cheeger estimate of
+        Section~\ref{ssec:lps} would change this intermediate number again, but does not
+        rescue the argument: Defects 1 and 2 already invalidate it independently of this
+        estimate's value.)
     \end{enumerate}
 
   \subsection{What a repair would additionally require}
@@ -461,24 +503,43 @@
     The defects of Section~\ref{ssec:defects} leave open whether a structural bound on
     $\beta$ exists via some other argument.
     A further consideration bears on which direction any repair is likely to point, even
-    though it does not settle the question.
-    Vertex-isoperimetric inequalities convert a spectral gap into a \emph{lower} bound on
-    available boundary size.
-    A multiplicity-weighted running-union model of the exploration host admits an explicit
-    strong finite-window spectral estimate; transferring it to a simple-union model requires
-    an overlap bound not proved here.
-    Even where such expansion control is available, geometric growth of the explored region
-    follows only under two further assumptions: each inner-boundary vertex realises a fixed
-    positive fraction of its activation budget, and activated edges have uniformly bounded
-    congestion on exterior target vertices.
-    Under those conditions the explored region reaches finite-group saturation on a
-    logarithmic depth scale, rather than following the polynomial growth
-    $p(n) \sim n^\beta$ that a structural exponent bound presupposes.
-    This observation is explicitly \textbf{not} a theorem: neither activation utilisation nor
-    bounded congestion is derived, and failure of either can avoid the conclusion.
-    It identifies the burden of proof for a future repair: the mechanism must explain
-    quantitatively why realised, distinct activation remains slow, rather than assume slow
-    growth to recover the phenomenological target.
+    though it does not settle the question, and is stated here as a precise conditional
+    inequality rather than a general impression, so that its hypotheses are auditable.
+
+    Write $E_n$ for the explored-configuration host of item~1 of Section~\ref{ssec:repair},
+    $\partial^-_V E_n$ for its inner vertex boundary (vertices of $E_n$ adjacent to the
+    complement) and $\partial^+_V E_n$ for its outer vertex boundary, $d(n)=p(n)+1$ for the
+    degree, and $h_n$ for the vertex-isoperimetric constant supplied by the host's spectral
+    gap (Section~\ref{ssec:repair}, item~1).
+    Vertex-isoperimetric inequalities give only the \emph{lower} bound
+    $|\partial^+_V E_n| \geq h_n |E_n|$ on available boundary, and $|\partial^-_V E_n| \geq
+    h_n|E_n|/d(n)$ by degree-regularity.
+    Suppose, in addition to items 3--5 of Section~\ref{ssec:repair} (the flux-allocation law,
+    the threshold $\epsilon_0=\kappa c_\chi$, and the activation-utilisation/congestion
+    mechanism), that a fixed fraction $\eta \in (0,1]$ of each inner-boundary vertex's
+    activation budget $b(n) := \min(p(n)+1,\lfloor 1/\kappa\rfloor)$ is realised, and that
+    each exterior target vertex absorbs at most $C_n$ realised activations.
+    Then the number of newly explored vertices satisfies
+    \begin{equation}
+      \label{eq:tension-bound}
+      \Delta|E_n| \;\geq\; \frac{\eta\, b(n)}{C_n}\, \frac{h_n}{d(n)}\, |E_n|.
+    \end{equation}
+    If $\eta$, $b(n)$, $h_n/d(n)$, and $1/C_n$ are all bounded below by positive constants
+    over the window of Section~\ref{ssec:repair}, item~1 -- which holds, for instance, once
+    $p(n)+1$ exceeds $1/\kappa$, under the multiplicity-weighted running-union spectral
+    estimate of Section~\ref{ssec:repair} -- then~\eqref{eq:tension-bound} is a geometric
+    recursion, giving finite-group saturation on a depth scale logarithmic in the host's size,
+    not the polynomial growth $p(n) \sim n^\beta$ that a structural exponent bound
+    presupposes.
+
+    This is explicitly \textbf{not} a theorem: $\eta$ (activation utilisation) and $C_n$
+    (target congestion) are named quantities that neither this note nor the corpus derives,
+    and~\eqref{eq:tension-bound} is vacuous if either is left unbounded (e.g.\ $\eta \to 0$ or
+    $C_n \to \infty$ fast enough).
+    It identifies the exact burden of proof for a future repair: a mechanism supplying a
+    quantitative bound on $\eta$ and $C_n$ -- not merely their existence -- that keeps the
+    right-hand side of~\eqref{eq:tension-bound} sub-polynomial, rather than a construction
+    that simply assumes slow growth to recover the phenomenological target.
 
   \section{The Residual Problem and its Geometric Content}
   \label{sec:residual}
@@ -488,8 +549,8 @@
 
     Section~\ref{sec:subdiffusion} examined whether the bounded-flux
     constraint~\eqref{eq:bi-constraint} restricts valence growth to $p(n) \lesssim C n^2$,
-    i.e.\ to at most quadratic cumulative exploration, written $\beta \leq 1$ in the rescaled
-    convention of Remark~\ref{rem:beta-convention}.
+    i.e.\ to at most quadratic cumulative exploration, written $\beta \leq 2$ in the raw
+    exponent convention of Remark~\ref{rem:beta-convention}.
     No such bound is established there: Section~\ref{ssec:defects} identifies three
     independent defects in the argument advanced for it, and Section~\ref{ssec:repair}
     identifies what a repair would additionally require.
@@ -498,11 +559,12 @@
     quantitative confinement discussed below.
 
     The companion paper O3~\cite{Beau2026a7} identifies, from the charged-lepton mass ratios,
-    the narrow phenomenological window $\beta^* \in (0.09, 0.13)$.
-    \emph{If} a structural upper bound $\beta \leq 1$ were established by a repaired argument,
+    the narrow phenomenological window $\beta^* \in (0.09, 0.13)$, in the same raw-exponent
+    convention.
+    \emph{If} a structural upper bound $\beta \leq 2$ were established by a repaired argument,
     it would be compatible with this window without explaining it: the gap between the two
-    would be a factor of roughly $8$--$10$ in the exponent, itself requiring further structure
-    to close.
+    would be a factor of roughly $15$--$22$ in the exponent ($2/0.13 \approx 15.4$ to
+    $2/0.09 \approx 22.2$), itself requiring further structure to close.
     This note does not establish the premise of that conditional.
 
   \subsection{Three sources of additional structure}
@@ -519,15 +581,19 @@
       Determining $D$ from the spectral structure of $\mathcal{G}(n)$ is an open problem
       amenable to the spectral reconstruction techniques of~\cite{Beau2026a}.
 
-    \paragraph{Saturated Born--Infeld front dynamics.}
-      The front-size argument examined in Section~\ref{ssec:defects} uses only the linear
-      regime of the flux bound~\eqref{eq:bi-constraint}.
-      In the fully saturated regime $|\partial_t \chi_v| \simeq c_\chi$, the nonlinear DBI
-      dynamics introduces corrections that could further suppress front expansion.
-      A refined analysis of the saturated DBI front, extending the one-mode reduction
-      of~\cite{Beau2026a1} to the variable-valence setting, could yield a bound of the form
-      $\Delta N(n) \lesssim c_\chi^\alpha \sqrt{p(n)}$ with $\alpha < 1$ -- but only once a
-      correctly typed front-size estimate exists to refine in the first place.
+    \paragraph{A genuinely Born--Infeld/DBI dynamical model.}
+      The front-size argument examined in Section~\ref{ssec:defects} does not use any
+      linearised or saturated regime of a Dirac--Born--Infeld action: it uses only the flat
+      capacity bound $[\text{A-cap}]$, $|\partial_t \chi_v| \leq c_\chi$, directly.
+      A genuinely different direction would replace this hard bound by an explicit nonlinear
+      DBI equation of motion for $\chi_v$, of which $[\text{A-cap}]$ is at best an asymptotic
+      or saturation feature rather than the starting hypothesis, extending the one-mode
+      reduction of~\cite{Beau2026a1} to the variable-valence setting.
+      Whether such a model constrains front growth more tightly than
+      Section~\ref{ssec:defects}'s (invalid) argument is open; a dimensionally consistent
+      bound of this kind would need to introduce whatever second scale the nonlinear DBI
+      action itself supplies, since $c_\chi^\alpha \sqrt{p(n)}$ for $\alpha \neq 1$ is not
+      well-typed on $c_\chi$ alone without one.
 
     \paragraph{Spectral mixing time and cascade coherence.}
       Requiring that the relaxation at rank $n$ reaches spectral equilibrium before rank $n+1$
@@ -558,7 +624,8 @@
     Cosmochrony substrate --- such as the effective dimension $D$ of $\Omega_\chi$, the
     saturation scale $c_\chi$, and the spectral invariants of $\mathcal{G}(n)$ --- and is
     numerically compatible with the phenomenological window $\beta^* \in (0.09, 0.13)$.
-    Here $\beta$ is used in the rescaled convention of Remark~\ref{rem:beta-convention}.
+    Here $\beta$ is the raw exponent of Remark~\ref{rem:beta-convention}, matching O3's own
+    convention.
   \end{openproblem}
 
   Open Problem~\ref{op:beta-window} is stated at the level of the sharp phenomenological
@@ -578,8 +645,8 @@
     The companion paper O3~\cite{Beau2026a7} shows that, within the variable-valence LPS
     framework, the inter-generational mass ratio takes the form~\eqref{eq:intro-mass-ratio},
     where $\lambda_i$ are the ADE eigenvalue levels fixed by the spectral stratigraphy
-    of~\cite{Beau2026a4}, and $\beta$ governs $p(n) \sim n^\beta$ (in the rescaled convention
-    of Remark~\ref{rem:beta-convention}).
+    of~\cite{Beau2026a4}, and $\beta$ governs $p(n) \sim n^\beta$, the same raw exponent used
+    throughout this note (Remark~\ref{rem:beta-convention}).
     Matching to the observed charged-lepton ratio $m_e / m_\tau \approx 3 \times 10^{-4}$
     selects
     \begin{equation}
@@ -681,14 +748,15 @@
       Determining $D$ from the spectral structure of the Cosmochrony substrate is amenable to
       the techniques of~\cite{Beau2026a}.
 
-    \paragraph{Saturated Born--Infeld front dynamics.}
-      The front-size argument of Section~\ref{ssec:defects} uses only the linearised regime
-      of the flux constraint.
-      In the fully saturated regime $|\partial_t \chi_v| \simeq c_\chi$, the nonlinear DBI
-      dynamics could suppress front expansion more strongly.
-      A one-mode DBI reduction in the variable-valence setting, extending~\cite{Beau2026a1},
-      could yield a bound $\Delta N(n) \lesssim c_\chi^\alpha \sqrt{p(n)}$ with $\alpha < 1$ --
-      but again only once a correctly typed estimate exists to refine.
+    \paragraph{A genuinely Born--Infeld/DBI dynamical model.}
+      As in Section~\ref{ssec:three-sources}, the front-size argument of
+      Section~\ref{ssec:defects} uses the flat capacity bound $[\text{A-cap}]$ directly, not
+      a linearised regime of a nonlinear DBI action.
+      Replacing $[\text{A-cap}]$ by an explicit nonlinear DBI equation of motion, extending the
+      one-mode reduction of~\cite{Beau2026a1} to the variable-valence setting, is a genuinely
+      different construction whose consequences for front growth are open; any resulting
+      bound would need to supply, and be dimensionally consistent with, whatever second scale
+      the DBI action itself introduces.
 
     \paragraph{Cascade coherence and spectral mixing.}
       Requiring spectral equilibrium at each cascade rank before advancing imposes a constraint

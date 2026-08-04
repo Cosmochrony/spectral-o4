@@ -1,22 +1,20 @@
-# O4 — Subdiffusive Valence Growth under Bounded Relational Flux
+# O4 — Bounded Relational Flux and Ramanujan Expansion Do Not Yet Yield a Cascade-Exponent Bound
 
 This repository contains the source of the O4 Cosmochrony paper:
 
-*Subdiffusive Valence Growth under Bounded Relational Flux: Structural
-Derivation of the Cascade Exponent \(\beta\)*.
+*Bounded Relational Flux and Ramanujan Expansion Do Not Yet Yield a Cascade-Exponent Bound*.
 
 ## Scope
 
-O4 studies a changing-valence family of Lubotzky–Phillips–Sarnak (LPS)
-Ramanujan graphs. It asks what bounded relational flux implies for the growth
-of the effective valence \(p(n)\) along that expander cascade.
-
-The manuscript does not determine the phenomenological value of \(\beta\).
-Its proved result is an upper bound under an explicit closure hypothesis.
+O4 examines whether the Born–Infeld flux constraint, combined with the Cheeger isoperimetric
+inequality for a changing-valence family of Lubotzky–Phillips–Sarnak (LPS) Ramanujan graphs,
+forces a structural upper bound on the cascade exponent \(\beta\) governing the growth of the
+effective valence \(p(n)\) along that expander cascade. It does not, by the specific argument
+examined.
 
 ## Structural inputs
 
-The argument uses:
+The argument audited uses:
 
 - the named bounded-capacity axiom [A-cap],
   \[
@@ -27,79 +25,92 @@ The argument uses:
   \[
   p(n)\propto N(n),
   \]
-  where \(N(n)\) counts cumulatively explored relational configurations.
+  where \(N(n)\) is meant to count cumulatively explored relational configurations.
 
-The proportionality is a hypothesis, not a microscopic dynamical law.
+The proportionality is a hypothesis, not a microscopic dynamical law, and is not yet a
+well-typed statement on this substrate: no combinatorial construction for \(N(n)\)'s host is
+supplied independent of the argument that uses it.
 
-## Main result
+## Main finding
 
-The flux and Cheeger estimates give
+The candidate argument for a growth bound — translate the flux bound into a front-size
+estimate via the Cheeger inequality, then integrate under the closure hypothesis — contains
+three independent defects, each sufficient on its own to invalidate it:
 
-\[
-\Delta N(n)\lesssim c_\chi\sqrt{p(n)}.
-\]
+1. a boundary-type mismatch (an edge boundary and a vertex boundary are conflated);
+2. a wrong-direction inequality (a Cheeger *lower* bound is used to produce an unsupported
+   *upper* bound);
+3. an asymptotic error (a diverging \(\sqrt{p(n)}\) factor is silently dropped).
 
-Under the valence–exploration closure, this becomes
+A repaired argument would additionally require a persistent exploration host, an edgewise
+flux-allocation law, a dimensionless activation threshold, and an activation-utilisation and
+target-congestion mechanism — none supplied by [A-cap] or the LPS construction. A conditional
+analysis further identifies a qualitative risk that the natural repair direction favours fast,
+near-geometric exploration rather than the slow polynomial growth a structural bound requires.
 
-\[
-\Delta p(n)\lesssim c_\chi\sqrt{p(n)},
-\]
-
-and integration yields
-
-\[
-p(n)\lesssim \frac14 c_\chi^2 n^2.
-\]
-
-Thus super-quadratic valence growth is excluded. In the rescaled convention
-used by the O-series, the corresponding structural statement is
-\(\beta\le 1\).
+No structural upper bound on \(\beta\) is established by this route. No claim is made that
+such a bound is impossible.
 
 ## Epistemic status
 
-Established in the manuscript:
+Established:
 
-- the LPS Cheeger/front estimate;
-- the conditional quadratic upper bound;
-- exclusion of super-quadratic growth under [A-cap] and the named closure.
+- the three independent defects in the front-size argument (Section 3.2 of the manuscript);
+- the closure hypothesis's well-typedness gap (Section 3.1);
+- the itemised list of what a repair would additionally require (Section 3.3).
 
-Not established:
+Not established, and explicitly not claimed:
 
-- the numerical window \(\beta^*\in(0.09,0.13)\);
+- any structural upper bound on \(\beta\), of any strength;
+- that no such bound could exist by some other argument;
+- the numerical window \(\beta^*\in(0.09,0.13)\) (O3's phenomenological result, independent
+  of this note);
 - a microscopic derivation of the LPS closure hypothesis;
 - a native Heisenberg capacity-to-rate law.
 
 ## Transfer boundary
 
-The closure \(p(n)\propto N(n)\) is meaningful for the changing-valence LPS
-model analysed here. It does not transfer to the fixed-degree Heisenberg BFS
-cascade. The native audit in the
-[Span-Growth Note](https://doi.org/10.5281/zenodo.21480521) refutes the
-required proportionality for the two native realisations present in the
-frozen corpus.
+The closure \(p(n)\propto N(n)\) is meaningful, if repaired, only for the changing-valence LPS
+model examined here. It does not transfer to the fixed-degree Heisenberg BFS cascade. The
+native audit in the [Span-Growth Note](https://doi.org/10.5281/zenodo.21480521) refutes the
+required proportionality for the two native realisations present in the frozen corpus; O4
+does not re-derive that result and is not affected by it beyond noting the scope boundary.
 
-Accordingly, O4 remains a valid expander-scoped conditional theorem. It is not
-a derivation of
+O4 is accordingly not a derivation of
 \[
 \beta^*=\frac{1}{\delta_{\mathrm{pair}}+\tfrac12}
 \]
-from the Heisenberg pair-capacity exponent.
+from the Heisenberg pair-capacity exponent, on either substrate.
+
+## Compilation
+
+```
+bash compile.sh
+```
+
+runs the full `pdflatex -> bibtex -> pdflatex x2` cycle and writes
+`out/SpectralO4.pdf` (git-ignored; regenerate from source rather than expecting a committed
+copy). The script requires a working TeX Live installation with the standard `amsmath`,
+`amssymb`, `amsthm`, `hyperref`, `geometry`, `booktabs`, `microtype`, `mathtools`,
+`graphicx`, `doi`, and `lmodern` packages; no pinned TeX Live version is currently recorded
+for this repository.
 
 ## Repository contents
 
 - `tex/SpectralO4.tex` — manuscript source
 - `tex/cosmochrony-bibliography.bib` — programme bibliography
 - `code/` — numerical and figure-generation material, when present
-- `out/SpectralO4.pdf` — compiled manuscript
+- `compile.sh` — reproduction script (see Compilation above)
+- `out/` — compiled manuscript and build artefacts (git-ignored, generated by `compile.sh`)
 
 ## Citation
 
-J. Beau, *Subdiffusive Valence Growth under Bounded Relational Flux:
-Structural Derivation of the Cascade Exponent*, Zenodo, 2026.
+J. Beau, *Bounded Relational Flux and Ramanujan Expansion Do Not Yet Yield a
+Cascade-Exponent Bound*, Zenodo, 2026.
 DOI: [10.5281/zenodo.19101472](https://doi.org/10.5281/zenodo.19101472).
 
 ## Acknowledgements
 
-Portions of the analytical and editorial development benefited from iterative
-interactions with large language models used as research assistants. All
-scientific claims and interpretations remain the author's responsibility.
+Portions of the analytical and editorial development benefited from iterative interactions
+with large language models used as research assistants. All scientific claims and
+interpretations remain the author's responsibility.
